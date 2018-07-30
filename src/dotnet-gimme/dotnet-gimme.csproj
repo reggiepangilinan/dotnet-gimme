@@ -1,0 +1,85 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ToolCommandName>dotnet-gimme</ToolCommandName>
+    <PackAsTool>True</PackAsTool>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="2.2.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="DefaultTemplates\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="PreprocessedT4Template.cs" />
+    <Compile Remove="VMI.Auth.Application\Fieldagency\Commands\Createfieldagency\Command.cs" />
+    <Compile Remove="VMI.Auth.Application\FieldAgency\Queries\GetSomething\Query.cs" />
+    <Compile Remove="VMI.Auth.Application\FieldAgency\Queries\GetSomething\ViewModel.cs" />
+    <Compile Remove="VMI.Auth.Application\Sample\Commands\Sample\Command.cs" />
+    <Compile Remove="VMI.Auth.Application\Sample\Commands\Sample\CommandValidator.cs" />
+    <Compile Remove="VMI.Auth.Application\sample\Queries\sample\Query.cs" />
+    <Compile Remove="VMI.Auth.Application\Exceptions\SampleException.cs" />
+    <Compile Remove="VMI.Auth.Api\Controllers\SampleController.cs" />
+    <Compile Remove="VMI.Auth.Application\Sample\Models\Sample.cs" />
+    <Compile Remove="VMI.Auth.Application\Sample\Models\Sample.cs" />
+    <Compile Remove="RR\RR.Api\Controllers\ValuesController.cs" />
+    <Compile Remove="ABC\ABC.Api\Controllers\ValuesController.cs" />
+    <Compile Remove="YTR\YTR.Api\Controllers\ValuesController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="DefaultTemplates\ApplicationCommandTemplate.txt" />
+    <None Remove="DefaultTemplates\ApplicationCommandValidatorTemplate.txt" />
+    <None Remove="DefaultTemplates\ApplicationQueryTemplate.txt" />
+    <None Remove="DefaultTemplates\ApplicationQueryViewModelTemplate.txt" />
+    <None Remove="DefaultTemplates\ApplicationExceptionTemplate.txt" />
+    <None Remove="DefaultTemplates\MediatorControllerTemplate.txt" />
+    <None Remove="RR\RR.Api\appsettings.Development.json" />
+    <None Remove="RR\RR.Api\appsettings.json" />
+    <None Remove="ABC\ABC.Api\appsettings.Development.json" />
+    <None Remove="ABC\ABC.Api\appsettings.json" />
+    <None Remove="YTR\YTR.Api\appsettings.Development.json" />
+    <None Remove="YTR\YTR.Api\appsettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="DefaultTemplates\ApplicationCommandTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DefaultTemplates\ApplicationQueryTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DefaultTemplates\ApplicationCommandTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\ApplicationCommandValidatorTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\ApplicationQueryTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\ApplicationModelTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\ApplicationExceptionTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\MediatorControllerTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
