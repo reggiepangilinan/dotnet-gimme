@@ -1,0 +1,8 @@
+﻿{
+  "Name":  "{{name}}",
+  "Projects" :  {
+    "WebApi": "{{name}}.Api",
+    "Application": "{{name}}.Application",
+    "ApplicationUnitTest": "{{name}}.Application.UnitTest"
+  }
+}

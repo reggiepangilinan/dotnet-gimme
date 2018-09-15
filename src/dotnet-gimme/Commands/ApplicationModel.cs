@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using dotnet_gimme;
+using dotnetgimme.Constants;
 using dotnetgimme.Utils;
 using McMaster.Extensions.CommandLineUtils;
 
@@ -21,35 +22,30 @@ namespace dotnetgimme.Commands
         public void OnExecute()
         {
             if (!Directory.Exists(GimmeConfiguration.ApplicationProjectName))
-                throw new DirectoryNotFoundException($"Could not find Application Project Folder '{GimmeConfiguration.ApplicationProjectName}'");
-            string currentDirectory = Environment.CurrentDirectory;
+                throw new DirectoryNotFoundException(ApplicationProject.Message.CannotFindApplicationFolder);
+            
+            var filename = $"{ModelName}.cs";
+            var nameSpace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Models";
             var workingDirectory = Path.Combine(
-                                                currentDirectory,
+                                                Environment.CurrentDirectory,
                                                 GimmeConfiguration.ApplicationProjectName,
                                                 GroupName,
                                                 "Models"
                                                );
+            var outputPath = Path.Combine(workingDirectory, filename);
 
             if (!Directory.Exists(workingDirectory))
                 Directory.CreateDirectory(workingDirectory);
 
+            var templateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, DefaultTemplates.APP_MODEL);
 
-            var templateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, "ApplicationModelTemplate.txt");
+            if (!File.Exists(templateFile))
+                throw new FileNotFoundException(ExceptionHelper.FileNotFoundMessage(templateFile));
 
-			if (!File.Exists(templateFile))
-				throw new FileNotFoundException($"Cannot find file {templateFile}");
+            var templateContent = File.ReadAllText(templateFile);
 
-
-            var filename = $"{ModelName}.cs";
-
-            var nameSpace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Models";
-
-			var templateContent = File.ReadAllText(templateFile);
-
-            var outputPath = Path.Combine(workingDirectory, filename);
-
-			File.WriteAllText(outputPath,
-			                  templateContent
+            File.WriteAllText(outputPath,
+                              templateContent
                               .Replace("{{namespace}}", nameSpace)
                               .Replace("{{name}}", ModelName)
                              );

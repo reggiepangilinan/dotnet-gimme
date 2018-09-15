@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Reflection;
 using dotnet_gimme;
+using dotnetgimme.Constants;
 using dotnetgimme.Utils;
 using McMaster.Extensions.CommandLineUtils;
 
@@ -22,41 +22,34 @@ namespace dotnetgimme.Commands
         public void OnExecute()
         {
             if (!Directory.Exists(GimmeConfiguration.ApplicationProjectName))
-                throw new DirectoryNotFoundException($"Could not find Application Project Folder '{GimmeConfiguration.ApplicationProjectName}'");
-            string currentDirectory = Environment.CurrentDirectory;
+                throw new DirectoryNotFoundException(ApplicationProject.Message.CannotFindApplicationFolder);
+
             var workingDirectory = Path.Combine(
-                                                currentDirectory,
+                                                Environment.CurrentDirectory,
                                                 GimmeConfiguration.ApplicationProjectName,
                                                 GroupName,
                                                 "Queries",
                                                 QueryName
                                                );
-
+            var queryTemplateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, DefaultTemplates.APP_QUERY);
+            var queryFilename = "Query.cs";
+            var nameSpace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Queries.{QueryName}";
+            var queryOutputPath = Path.Combine(workingDirectory, queryFilename);
 
             if (!Directory.Exists(workingDirectory))
                 Directory.CreateDirectory(workingDirectory);
-
-
-            var queryTemplateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, "ApplicationQueryTemplate.txt");
-
+            
             if (!File.Exists(queryTemplateFile))
-                throw new FileNotFoundException($"Cannot find file {queryTemplateFile}");
-
-
-            var queryFilename = "Query.cs";
-
-            var nameSpace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Queries.{QueryName}";
+                throw new FileNotFoundException(ExceptionHelper.FileNotFoundMessage(queryTemplateFile));
 
             var queryStringContent = File.ReadAllText(queryTemplateFile);
-
-            var queryOutputPath = Path.Combine(workingDirectory, queryFilename);
 
             File.WriteAllText(queryOutputPath,
                               queryStringContent
                               .Replace("{{namespace}}", nameSpace)
                               .Replace("{{name}}", QueryName)
                              );
-
+            
             ConsoleUtil.SuccessMessage($"Query succesfully generated!");
         }
     }

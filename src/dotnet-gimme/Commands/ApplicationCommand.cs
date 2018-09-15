@@ -4,6 +4,8 @@ using System.IO;
 using dotnet_gimme;
 using dotnetgimme.Utils;
 using McMaster.Extensions.CommandLineUtils;
+using static dotnetgimme.Utils.ExceptionHelper;
+using static dotnetgimme.Constants.DefaultTemplates;
 
 namespace dotnetgimme.Commands
 {
@@ -22,54 +24,49 @@ namespace dotnetgimme.Commands
         public void OnExecute()
         {
             if (!Directory.Exists(GimmeConfiguration.ApplicationProjectName))
-                throw new DirectoryNotFoundException($"Could not find Application Project Folder '{GimmeConfiguration.ApplicationProjectName}'");
-            
-            string currentDirectory = Environment.CurrentDirectory;
+                throw new DirectoryNotFoundException(ApplicationProject.Message.CannotFindApplicationFolder);
 
-            var workingDirectory = Path.Combine(
-                                                currentDirectory,
+            var commandFilename = "Command.cs";
+            var commandValidatorFilename = "CommandValidator.cs";
+            var applicationNamespace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Commands.{CommandName}";
+            var applicationDirectory = Path.Combine(
+                                                Environment.CurrentDirectory,
                                                 GimmeConfiguration.ApplicationProjectName,
                                                 GroupName,
                                                 "Commands",
                                                 CommandName
                                                );
 
-            if (!Directory.Exists(workingDirectory))
-                Directory.CreateDirectory(workingDirectory);
+            if (!Directory.Exists(applicationDirectory))
+                Directory.CreateDirectory(applicationDirectory);
 
-
-            var commandTemplateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, "ApplicationCommandTemplate.txt");
-            var commandValidatorTemplateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, "ApplicationCommandValidatorTemplate.txt");
-
+            var commandTemplateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, APP_COMMAND);
+            var commandValidatorTemplateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, APP_COMMAND_VALIDATOR);
 
             if (!File.Exists(commandTemplateFile))
-                throw new FileNotFoundException($"Cannot find file {commandTemplateFile}");
-
+                throw new FileNotFoundException(FileNotFoundMessage(commandTemplateFile));
 
             if (!File.Exists(commandValidatorTemplateFile))
-                throw new FileNotFoundException($"Cannot find file {commandValidatorTemplateFile}");
+                throw new FileNotFoundException(FileNotFoundMessage(commandValidatorTemplateFile));
 
-            var commandFilename = "Command.cs";
-            var commandValidatorFilename = "CommandValidator.cs";
-
-            var nameSpace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Commands.{CommandName}";
 
             var commandString = File.ReadAllText(commandTemplateFile);
             var commandValidatorString = File.ReadAllText(commandValidatorTemplateFile);
 
-            var commandOutputFilePath = Path.Combine(workingDirectory, commandFilename);
-            var commandValidatorOutputFilePath = Path.Combine(workingDirectory, commandValidatorFilename);
+            var commandOutputFilePath = Path.Combine(applicationDirectory, commandFilename);
+            var commandValidatorOutputFilePath = Path.Combine(applicationDirectory, commandValidatorFilename);
 
             File.WriteAllText(commandOutputFilePath,
                               commandString
-                              .Replace("{{namespace}}", nameSpace)
+                              .Replace("{{namespace}}", applicationNamespace)
                               .Replace("{{name}}", CommandName)
                              );
 
             File.WriteAllText(commandValidatorOutputFilePath,
                               commandValidatorString
-                  .Replace("{{namespace}}", nameSpace)
+                  .Replace("{{namespace}}", applicationNamespace)
                  );
+
             ConsoleUtil.SuccessMessage($"Command succesfully generated!");
         }
     }

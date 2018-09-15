@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using dotnet_gimme;
+using dotnetgimme.Constants;
 using dotnetgimme.Utils;
 using McMaster.Extensions.CommandLineUtils;
 
@@ -18,38 +19,33 @@ namespace dotnetgimme.Commands
         public void OnExecute()
         {
             if (!Directory.Exists(GimmeConfiguration.ApplicationProjectName))
-                throw new DirectoryNotFoundException($"Could not find Application Project Folder '{GimmeConfiguration.ApplicationProjectName}'");
+                throw new DirectoryNotFoundException(ApplicationProject.Message.CannotFindApplicationFolder);
 
-            string currentDirectory = Environment.CurrentDirectory;
-
+            var outputFile = $"{ExceptionName}.cs";
+            var nameSpace = $"{GimmeConfiguration.ApplicationProjectName}.Exceptions";
             var workingDirectory = Path.Combine(
-                                                currentDirectory,
+                                                Environment.CurrentDirectory,
                                                 GimmeConfiguration.ApplicationProjectName,
                                                 "Exceptions"
                                                );
+            var exceptionOutputFilePath = Path.Combine(workingDirectory, outputFile);
 
             if (!Directory.Exists(workingDirectory))
                 Directory.CreateDirectory(workingDirectory);
 
-            var exceptionTemplateFile = Path.Combine(GimmeConfiguration.TemplateDirectory, "ApplicationExceptionTemplate.txt");
+            var template = Path.Combine(GimmeConfiguration.TemplateDirectory, DefaultTemplates.APP_EXCEPTION);
 
-            if (!File.Exists(exceptionTemplateFile))
-                throw new FileNotFoundException($"Cannot find file {exceptionTemplateFile}");
-
-            var exceptionFilename = $"{ExceptionName}.cs";
-
-            var nameSpace = $"{GimmeConfiguration.ApplicationProjectName}.Exceptions";
-
-            var exceptionStringContent = File.ReadAllText(exceptionTemplateFile);
-
-            var exceptionOutputFilePath = Path.Combine(workingDirectory, exceptionFilename);
+            if (!File.Exists(template))
+                throw new FileNotFoundException(ExceptionHelper.FileNotFoundMessage(template));
+            
+            var templateContent = File.ReadAllText(template);
 
             File.WriteAllText(exceptionOutputFilePath,
-                  exceptionStringContent
+                              templateContent
                   .Replace("{{namespace}}", nameSpace)
                   .Replace("{{name}}", ExceptionName)
                  );
-
+            
             ConsoleUtil.SuccessMessage($"Exception succesfully generated!");
         }
     }

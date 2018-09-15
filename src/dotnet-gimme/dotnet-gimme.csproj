@@ -17,6 +17,12 @@
     <Folder Include="DefaultTemplates\" />
     <Folder Include="Utils\" />
     <Folder Include="Commands\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Commands\WebApiStarter\" />
+    <Folder Include="DefaultTemplates\WebApiStarter\" />
+    <Folder Include="DefaultTemplates\WebApiStarter\Domain\" />
+    <Folder Include="DefaultTemplates\WebApiStarter\Api\" />
+    <Folder Include="DefaultTemplates\WebApiStarter\Application\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="PreprocessedT4Template.cs" />
@@ -33,6 +39,39 @@
     <Compile Remove="RR\RR.Api\Controllers\ValuesController.cs" />
     <Compile Remove="ABC\ABC.Api\Controllers\ValuesController.cs" />
     <Compile Remove="YTR\YTR.Api\Controllers\ValuesController.cs" />
+    <Compile Remove="VMI.Auth.WebApi\Controllers\SampleController.cs" />
+    <Compile Remove="Commands\ApplicationModel %28copy%29.cs" />
+    <Compile Remove="Yow\Yow.Api\Controllers\ValuesController.cs" />
+    <Compile Remove="Yow\Yow.Api\Program.cs" />
+    <Compile Remove="Yow\Yow.Api\Startup.cs" />
+    <Compile Remove="Yow\Yow.Application.Domain\Entities\BaseEntity.cs" />
+    <Compile Remove="Yow\Yow.Domain\Entities\BaseEntity.cs" />
+    <Compile Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.AssemblyInfo.cs" />
+    <Compile Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.AssemblyInfo.cs" />
+    <Compile Remove="Yow\Yow.Domain\obj\Debug\netcoreapp2.1\Yow.Domain.AssemblyInfo.cs" />
+    <Compile Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.AssemblyInfo.cs" />
+    <Compile Remove="Yow\Yow.Services\obj\Debug\netcoreapp2.1\Yow.Services.AssemblyInfo.cs" />
+    <Compile Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.RazorAssemblyInfo.cs" />
+    <Compile Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.AssemblyInfo.cs" />
+    <Compile Remove="Yow\Yow.Api\Controllers\MediatorController.cs" />
+    <Compile Remove="Yow\Yow.Api\Controllers\HomeController.cs" />
+    <Compile Remove="Yow\Yow.Api\Filters\ActionValidationFilterAttribute.cs" />
+    <Compile Remove="Yow\Yow.Api\Filters\CustomExceptionFilterAttribute.cs" />
+    <Compile Remove="Yow\Yow.Application\Exceptions\RecordAlreadyExistsException.cs" />
+    <Compile Remove="Yow\Yow.Application\Exceptions\RecordNotFoundException.cs" />
+    <Compile Remove="Yow\Yow.Api\Swagger.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\AutoMapper.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\FluentValidation.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\MediatR.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\AutoMapper.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\FluentValidation.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\MediatR.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\Mvc.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\Swagger.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\AutoMapper.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\FluentValidation.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\MediatR.cs" />
+    <Compile Remove="Yow\Yow.Api\Configurations\Mvc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="DefaultTemplates\ApplicationCommandTemplate.txt" />
@@ -47,12 +86,170 @@
     <None Remove="ABC\ABC.Api\appsettings.json" />
     <None Remove="YTR\YTR.Api\appsettings.Development.json" />
     <None Remove="YTR\YTR.Api\appsettings.json" />
+    <None Remove="DefaultTemplates\GimmeSettingsTemplate.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Domain\BaseEntity.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\GitIgnoreTemplate.txt" />
+    <None Remove="TestLang\TestLang.Api\appsettings.Development.json" />
+    <None Remove="TestLang\TestLang.Api\appsettings.json" />
+    <None Remove="TestLang\TestLang.Api\bin\Debug\netcoreapp2.1\TestLang.Api.deps.json" />
+    <None Remove="Yey\.DS_Store" />
+    <None Remove="Yow\Yow.Api\appsettings.Development.json" />
+    <None Remove="Yow\Yow.Api\appsettings.json" />
+    <None Remove="Yow\.gitignore" />
+    <None Remove="Yow\gimmesettings.json" />
+    <None Remove="Yow\Yow.Api\Properties\launchSettings.json" />
+    <None Remove="Yow\Yow.Application\obj\Yow.Application.csproj.nuget.g.props" />
+    <None Remove="Yow\Yow.Application\obj\Yow.Application.csproj.nuget.g.targets" />
+    <None Remove="Yow\Yow.Application\obj\project.assets.json" />
+    <None Remove="Yow\Yow.Application\obj\Yow.Application.csproj.nuget.cache" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Yow.Application.UnitTest.csproj.nuget.g.props" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Yow.Application.UnitTest.csproj.nuget.g.targets" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\project.assets.json" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Yow.Application.UnitTest.csproj.nuget.cache" />
+    <None Remove="Yow\Yow.Services\obj\Yow.Services.csproj.nuget.g.props" />
+    <None Remove="Yow\Yow.Services\obj\Yow.Services.csproj.nuget.g.targets" />
+    <None Remove="Yow\Yow.Services\obj\project.assets.json" />
+    <None Remove="Yow\Yow.Services\obj\Yow.Services.csproj.nuget.cache" />
+    <None Remove="Yow\Yow.Domain\obj\Yow.Domain.csproj.nuget.g.props" />
+    <None Remove="Yow\Yow.Domain\obj\Yow.Domain.csproj.nuget.g.targets" />
+    <None Remove="Yow\Yow.Domain\obj\project.assets.json" />
+    <None Remove="Yow\Yow.Domain\obj\Yow.Domain.csproj.nuget.cache" />
+    <None Remove="Yow\Yow.Persistance\obj\Yow.Persistance.csproj.nuget.g.props" />
+    <None Remove="Yow\Yow.Persistance\obj\Yow.Persistance.csproj.nuget.g.targets" />
+    <None Remove="Yow\Yow.Persistance\obj\project.assets.json" />
+    <None Remove="Yow\Yow.Persistance\obj\Yow.Persistance.csproj.nuget.cache" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\ActionValidationFilterAttributeTemplate.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\CustomExceptionFilterAttributeTemplate.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\HomeControllerTemplate.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\MediatorControllerTemplate.txt" />
+    <None Remove="Yow\.DS_Store" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Domain.pdb" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Persistance.dll" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Persistance.pdb" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Services.dll" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Services.pdb" />
+    <None Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.AssemblyInfoInputs.cache" />
+    <None Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.assets.cache" />
+    <None Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.csproj.CopyComplete" />
+    <None Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.csproj.CoreCompileInputs.cache" />
+    <None Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.csproj.FileListAbsolute.txt" />
+    <None Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.csprojResolveAssemblyReference.cache" />
+    <None Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.dll" />
+    <None Remove="Yow\Yow.Application\obj\Debug\netcoreapp2.1\Yow.Application.pdb" />
+    <None Remove="Yow\Yow.Application.Domain\.DS_Store" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Application.UnitTest.deps.json" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Application.UnitTest.dll" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Application.UnitTest.pdb" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Application.dll" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Application.pdb" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Domain.dll" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Domain.pdb" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Persistance.dll" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Persistance.pdb" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Services.dll" />
+    <None Remove="Yow\Yow.Application.UnitTest\bin\Debug\netcoreapp2.1\Yow.Services.pdb" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.AssemblyInfoInputs.cache" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.assets.cache" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.csproj.CopyComplete" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.csproj.CoreCompileInputs.cache" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.csproj.FileListAbsolute.txt" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.csprojResolveAssemblyReference.cache" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.dll" />
+    <None Remove="Yow\Yow.Application.UnitTest\obj\Debug\netcoreapp2.1\Yow.Application.UnitTest.pdb" />
+    <None Remove="Yow\Yow.Domain\bin\Debug\netcoreapp2.1\Yow.Domain.deps.json" />
+    <None Remove="Yow\Yow.Domain\bin\Debug\netcoreapp2.1\Yow.Domain.dll" />
+    <None Remove="Yow\Yow.Domain\bin\Debug\netcoreapp2.1\Yow.Domain.pdb" />
+    <None Remove="Yow\Yow.Domain\obj\Debug\netcoreapp2.1\Yow.Domain.AssemblyInfoInputs.cache" />
+    <None Remove="Yow\Yow.Domain\obj\Debug\netcoreapp2.1\Yow.Domain.assets.cache" />
+    <None Remove="Yow\Yow.Domain\obj\Debug\netcoreapp2.1\Yow.Domain.csproj.CoreCompileInputs.cache" />
+    <None Remove="Yow\Yow.Domain\obj\Debug\netcoreapp2.1\Yow.Domain.csproj.FileListAbsolute.txt" />
+    <None Remove="Yow\Yow.Domain\obj\Debug\netcoreapp2.1\Yow.Domain.dll" />
+    <None Remove="Yow\Yow.Domain\obj\Debug\netcoreapp2.1\Yow.Domain.pdb" />
+    <None Remove="Yow\Yow.Persistance\bin\Debug\netcoreapp2.1\Yow.Domain.dll" />
+    <None Remove="Yow\Yow.Persistance\bin\Debug\netcoreapp2.1\Yow.Domain.pdb" />
+    <None Remove="Yow\Yow.Persistance\bin\Debug\netcoreapp2.1\Yow.Persistance.deps.json" />
+    <None Remove="Yow\Yow.Persistance\bin\Debug\netcoreapp2.1\Yow.Persistance.dll" />
+    <None Remove="Yow\Yow.Persistance\bin\Debug\netcoreapp2.1\Yow.Persistance.pdb" />
+    <None Remove="Yow\Yow.Persistance\bin\Debug\netcoreapp2.1\Yow.Persistance.runtimeconfig.dev.json" />
+    <None Remove="Yow\Yow.Persistance\bin\Debug\netcoreapp2.1\Yow.Persistance.runtimeconfig.json" />
+    <None Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.AssemblyInfoInputs.cache" />
+    <None Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.assets.cache" />
+    <None Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.csproj.CopyComplete" />
+    <None Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.csproj.CoreCompileInputs.cache" />
+    <None Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.csproj.FileListAbsolute.txt" />
+    <None Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.csprojResolveAssemblyReference.cache" />
+    <None Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.dll" />
+    <None Remove="Yow\Yow.Persistance\obj\Debug\netcoreapp2.1\Yow.Persistance.pdb" />
+    <None Remove="Yow\Yow.Services\bin\Debug\netcoreapp2.1\Yow.Services.deps.json" />
+    <None Remove="Yow\Yow.Services\bin\Debug\netcoreapp2.1\Yow.Services.dll" />
+    <None Remove="Yow\Yow.Services\bin\Debug\netcoreapp2.1\Yow.Services.pdb" />
+    <None Remove="Yow\Yow.Services\obj\Debug\netcoreapp2.1\Yow.Services.AssemblyInfoInputs.cache" />
+    <None Remove="Yow\Yow.Services\obj\Debug\netcoreapp2.1\Yow.Services.assets.cache" />
+    <None Remove="Yow\Yow.Services\obj\Debug\netcoreapp2.1\Yow.Services.csproj.CoreCompileInputs.cache" />
+    <None Remove="Yow\Yow.Services\obj\Debug\netcoreapp2.1\Yow.Services.csproj.FileListAbsolute.txt" />
+    <None Remove="Yow\Yow.Services\obj\Debug\netcoreapp2.1\Yow.Services.csprojResolveAssemblyReference.cache" />
+    <None Remove="Yow\Yow.Services\obj\Debug\netcoreapp2.1\Yow.Services.dll" />
+    <None Remove="Yow\Yow.Services\obj\Debug\netcoreapp2.1\Yow.Services.pdb" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Api.deps.json" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Api.dll" />
+    <None Remove="Yow\Yow.Api\obj\Yow.Api.csproj.nuget.cache" />
+    <None Remove="Yow\Yow.Api\obj\Yow.Api.csproj.nuget.g.props" />
+    <None Remove="Yow\Yow.Api\obj\Yow.Api.csproj.nuget.g.targets" />
+    <None Remove="Yow\Yow.Api\obj\project.assets.json" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.AssemblyInfoInputs.cache" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.RazorAssemblyInfo.cache" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.RazorTargetAssemblyInfo.cache" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.assets.cache" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.csproj.CopyComplete" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.csproj.CoreCompileInputs.cache" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.csproj.FileListAbsolute.txt" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.csprojResolveAssemblyReference.cache" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.dll" />
+    <None Remove="Yow\Yow.Api\obj\Debug\netcoreapp2.1\Yow.Api.pdb" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Application.deps.json" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Application.dll" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Application.pdb" />
+    <None Remove="Yow\Yow.Application\bin\Debug\netcoreapp2.1\Yow.Domain.dll" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Api.pdb" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Api.runtimeconfig.dev.json" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Api.runtimeconfig.json" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Application.dll" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Application.pdb" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Domain.dll" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Domain.pdb" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Persistance.dll" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Persistance.pdb" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Services.dll" />
+    <None Remove="Yow\Yow.Api\bin\Debug\netcoreapp2.1\Yow.Services.pdb" />
+    <None Remove="DefaultTemplates\WebApiStarter\Application\RecordNotFoundExceptionTemplate.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Application\RecordAlreadyExistsExceptionTemplate.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\Configuration_Swagger.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\Configuration_Mvc.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\Configuration_MediatR.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\Configuration_FluentValidation.txt" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\Configuration_AutoMapper.text" />
+    <None Remove="DefaultTemplates\WebApiStarter\Api\Startup.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Update="DefaultTemplates\ApplicationCommandTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="DefaultTemplates\ApplicationQueryTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DefaultTemplates\WebApiStarter\Domain\BaseEntity.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DefaultTemplates\WebApiStarter\Application\RecordAlreadyExistsExceptionTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DefaultTemplates\WebApiStarter\Api\Configuration_Swagger.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DefaultTemplates\WebApiStarter\Api\Configuration_Mvc.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DefaultTemplates\WebApiStarter\Api\Configuration_MediatR.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -66,13 +263,55 @@
     <Content Include="DefaultTemplates\ApplicationQueryTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="DefaultTemplates\ApplicationModelTemplate.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="DefaultTemplates\ApplicationExceptionTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DefaultTemplates\MediatorControllerTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\GimmeSettingsTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Domain\BaseEntity.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\GitIgnoreTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\ActionValidationFilterAttributeTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\CustomExceptionFilterAttributeTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\HomeControllerTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\MediatorControllerTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Application\RecordNotFoundExceptionTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Application\RecordAlreadyExistsExceptionTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\Configuration_Swagger.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\Configuration_Mvc.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\Configuration_MediatR.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\Configuration_FluentValidation.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\Configuration_AutoMapper.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DefaultTemplates\WebApiStarter\Api\Startup.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

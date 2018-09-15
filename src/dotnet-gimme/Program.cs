@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using dotnetgimme;
 using dotnetgimme.Utils;
 using McMaster.Extensions.CommandLineUtils;
@@ -11,16 +12,19 @@ namespace dotnet_gimme
         {
             try
             {
+#if (DEBUG)
                 var argsDebug = Console.ReadLine();
+                if (!string.IsNullOrEmpty(argsDebug))
+                    return CommandLineApplication.Execute<Gimme>(argsDebug.Split(' '));
 
-                if (string.IsNullOrEmpty(argsDebug))
-                    return CommandLineApplication.Execute<Gimme>(args);
-                return CommandLineApplication.Execute<Gimme>(argsDebug.Split(' '));
+#endif
+                return CommandLineApplication.Execute<Gimme>(args);
 
             }
             catch (Exception ex)
             {
-                ConsoleUtil.ExceptionMessage(ex.Message, ex.StackTrace);
+                var baseException = ex.GetBaseException();
+                ConsoleUtil.ExceptionMessage(baseException.Message, baseException.StackTrace);
                 return Gimme.EXCEPTION;
             }
         }

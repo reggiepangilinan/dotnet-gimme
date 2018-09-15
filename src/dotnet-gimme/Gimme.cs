@@ -1,5 +1,7 @@
 ﻿using System;
+using dotnet_gimme;
 using dotnetgimme.Commands;
+using dotnetgimme.Commands.WebApiStarter;
 using dotnetgimme.Utils;
 using McMaster.Extensions.CommandLineUtils;
 
@@ -14,7 +16,8 @@ namespace dotnetgimme
      Subcommand("app-model", typeof(ApplicationModel)),
      Subcommand("app-exception", typeof(Commands.ApplicationException)),
      Subcommand("api-mediator-controller", typeof(MediatorController)),
-     Subcommand("webapi-starter", typeof(WebApiStarter))
+     Subcommand("webapi-starter", typeof(WebApiStarter)),
+     Subcommand("settings", typeof(GimmeSettings))
     ]
     public class Gimme
     {
@@ -53,7 +56,25 @@ namespace dotnetgimme
             ConsoleUtil.HiglightedMessage("Let's get started dude! Pick a command and then execute it.", 
                                           "If you don't know what you're doing just type --help");
 
+
+
             app.ShowHelp();
+
+            if(!GimmeConfiguration.Exists())
+            {
+                ConsoleUtil.HiglightedMessage("There is no 'gimmesettings.json' file in the current directory.",
+                                              "Run command 'dotnet gimme config' to create one.");
+                    
+            } else {
+                ConsoleUtil.HiglightedMessage("Here are your current settings",
+                                              $" - Name: {GimmeConfiguration.ProjectName}",
+                                              $" - WebApi Project: {GimmeConfiguration.WebApiProjectName}",
+                                              $" - Application Project: {GimmeConfiguration.ApplicationProjectName}",
+                                              $" - Application UnitTest Project: {GimmeConfiguration.ApplicationProjectUnitTestName}"
+                                             );
+                
+            }
+
             return ERROR;
         }
     }
