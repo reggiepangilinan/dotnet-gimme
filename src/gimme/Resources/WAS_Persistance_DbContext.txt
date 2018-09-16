@@ -1,0 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+
+namespace {{solutionname}}.Persistance.Context
+{
+    public class {{solutionname}}DbContext : Microsoft.EntityFrameworkCore.DbContext
+    {
+        public {{solutionname}}DbContext(DbContextOptions<{{solutionname}}DbContext> options) : base(options)
+        {
+        }
+        protected override void OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+    }
+}

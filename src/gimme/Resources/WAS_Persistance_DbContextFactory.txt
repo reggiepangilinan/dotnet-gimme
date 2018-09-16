@@ -1,0 +1,22 @@
+using System;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+
+namespace {{solutionname}}.Persistance.Context {
+    public class {{solutionname}}DbContextFactory : IDesignTimeDbContextFactory<{{solutionname}}DbContext> {
+        public static IConfigurationRoot Configuration { get; set; }
+        public {{solutionname}}DbContextFactory () {
+            var builder = new ConfigurationBuilder ()
+                .SetBasePath (Directory.GetCurrentDirectory ())
+                .AddJsonFile ("appsettings.json");
+            Configuration = builder.Build ();
+        }
+        public {{solutionname}}DbContext CreateDbContext (string[] args) {
+            var optionsBuilder = new DbContextOptionsBuilder<{{solutionname}}DbContext> ();
+            optionsBuilder.UseSqlServer (Configuration.GetConnectionString ("Default"));
+            return new {{solutionname}}DbContext (optionsBuilder.Options);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+using System;
+
+namespace {{namespace}}
+{
+    public class {{name}}
+    {
+        public {{name}}()
+        {
+
+        }
+    }
+}

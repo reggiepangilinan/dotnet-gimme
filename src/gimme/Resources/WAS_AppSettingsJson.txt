@@ -1,0 +1,11 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "Default": "Data Source=localhost; Initial Catalog={{solutionname}}_Db; UID=<YOURUSERNAMEHERE>; password=<YOURPASSWORDHERE>"
+  }
+}

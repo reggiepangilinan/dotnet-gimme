@@ -1,0 +1,50 @@
+using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using static {{solutionname}}.Api.Configurations.AutoMapper;
+using static {{solutionname}}.Api.Configurations.FluentValidation;
+using static {{solutionname}}.Api.Configurations.MediatR;
+using static {{solutionname}}.Api.Configurations.Mvc;
+using static {{solutionname}}.Api.Configurations.Swagger;
+using static {{solutionname}}.Api.Configurations.Db;
+using {{solutionname}}.Persistance.Context;
+
+namespace {{solutionname}}.Api
+{
+    public class Startup
+    {
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+			RegisterEntityFramework(services, Configuration);
+            RegisterMediatR(services);
+            RegisterAutoMapper(services);
+            IMvcBuilder mvcBuilder = RegisterMvc(services);
+            AddFluentValidation(mvcBuilder);
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, {{solutionname}}DbContext context)
+        {
+            Console.WriteLine("Current Environment");
+            Console.WriteLine(env.EnvironmentName);
+            ConfigureSwagger(app, env);
+            ConfigureMvc(app);
+			ConfigureDatabaseMigrations(context);
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+				SeedDatabase(context);
+            }
+        }
+    }
+}

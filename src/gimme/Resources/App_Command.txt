@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using NJsonSchema.Annotations;
+using MediatR;
+
+namespace {{namespace}}
+{
+    /// <summary>
+    /// Command
+    /// </summary>
+    [JsonSchema("{{name}}Command")]
+    public class Command : IRequest<YouReturnTypeHere>
+    {
+    }
+
+    /// <summary>
+    /// Command Handler
+    /// </summary>
+    public class CommandHandler : IRequestHandler<Command, YouReturnTypeHere>
+    {
+        public CommandHandler()
+        {
+
+        }
+        public async Task<YouReturnTypeHere> Handle(Command request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

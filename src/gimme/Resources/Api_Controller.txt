@@ -1,0 +1,20 @@
+using System.ComponentModel;
+using System.Net;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
+namespace {{namespace}}
+{
+   [Route ("api/[controller]")]
+    public class {{name}} : MediatorController {
+        [HttpGet]
+        [DescriptionAttribute ("Your endpoint description goes here.")]
+        [ProducesResponseType (typeof (YourReturnType), (int) HttpStatusCode.OK)]
+        public async Task<IActionResult> Get()
+        {
+            //TODO: Implement Realistic Implementation
+            await Mediator.Send (new YourCommandOrQueryHere() {});
+            return Ok();
+        }
+    }
+}

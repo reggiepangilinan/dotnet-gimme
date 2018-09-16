@@ -1,0 +1,13 @@
+using System;
+using FluentValidation;
+
+namespace {{namespace}}
+{
+    public class CommandValidator : AbstractValidator<Command>
+    {
+        public CommandValidator()
+        {
+
+        }
+    }
+}

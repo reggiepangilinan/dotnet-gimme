@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using NJsonSchema.Annotations;
+using MediatR;
+
+namespace {{namespace}}
+{
+    /// <summary>
+    /// Query
+    /// </summary>
+    [JsonSchema("{{name}}Query")]
+    public class Query : IRequest<Model>
+    {
+    }
+
+    /// <summary>
+    /// Query Handler
+    /// </summary>
+    public class QueryHandler : IRequestHandler<Query, Model>
+    {
+        public QueryHandler()
+        {
+
+        }
+        public async Task<Model> Handle(Query request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

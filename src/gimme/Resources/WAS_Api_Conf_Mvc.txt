@@ -1,0 +1,29 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
+using {{solutionname}}.Api.Filters;
+
+namespace {{solutionname}}.Api.Configurations
+{
+    public static class Mvc {
+        /// <summary>
+        /// Registers the mvc.
+        /// </summary>
+        /// <returns>The mvc.</returns>
+        /// <param name="services">Services.</param>
+        internal static IMvcBuilder RegisterMvc (IServiceCollection services) {
+            return services.AddMvc (options => {
+                options.Filters.Add (typeof (CustomExceptionFilterAttribute));
+                options.Filters.Add (typeof (ActionValidationFilterAttribute));
+            }).SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)
+              .AddJsonOptions (options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ());
+        }
+        /// <summary>
+        /// Configures the mvc.
+        /// </summary>
+        /// <param name="app">App.</param>
+        internal static void ConfigureMvc (IApplicationBuilder app) {
+            app.UseMvcWithDefaultRoute ();
+        }
+    }
+}

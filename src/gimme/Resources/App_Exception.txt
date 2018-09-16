@@ -1,0 +1,7 @@
+using System;
+
+namespace {{namespace}} {
+    public class {{name}} : Exception {
+        public {{name}} (string value) : base ($"Your exception message goes here. '{value}' ") { }
+    }
+}
