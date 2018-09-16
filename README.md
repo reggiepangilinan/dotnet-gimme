@@ -23,9 +23,9 @@
 
 To install `gimme` globally run this command
 ```
-dotnet tool install -g gimme
+dotnet tool install --global dotnet-gimme --version 1.0.0
 ```
-Once installed, the command `dotnet gimme` can now be used.
+Once installed, the command `gimme` can now be used.
 
 
 ### Documentation
@@ -71,11 +71,11 @@ You can create your tool package like this:
 dotnet pack --output ./ -c Release
 ```
 
-This creates a file named `gimme.x.x.x.nupkg` 
+This creates a file named `dotnet-gimme.x.x.x.nupkg` 
 
 You can install your package like this:
 ```
-dotnet tool install -g gimme --add-source ./ --version x.x.x
+dotnet tool install -g dotnet-gimme --add-source ./ --version x.x.x
 ```
 
 Additional commands
@@ -83,6 +83,6 @@ dotnet tool has other commands you can invoke.
 
 ```
 dotnet tool list -g
-dotnet tool uninstall -g gimme
-dotnet tool update -g gimme
+dotnet tool uninstall -g dotnet-gimme
+dotnet tool update -g dotnet-gimme
 ```
