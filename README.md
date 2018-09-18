@@ -19,7 +19,7 @@
  ==============================================================
 ```
 
-### How to install
+## How to install
 
 To install `gimme` globally run this command
 ```
@@ -28,7 +28,7 @@ dotnet tool install --global dotnet-gimme --version 1.0.0
 Once installed, the command `gimme` can now be used.
 
 
-### Documentation
+## Documentation
 
 > TODO : Create proper documentation
 

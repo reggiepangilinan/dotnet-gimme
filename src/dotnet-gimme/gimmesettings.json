@@ -1,8 +1,0 @@
-﻿{
-  "Name":  "Sandbox",
-  "Projects" :  {
-    "WebApi": "Sandbox.Api",
-    "Application": "Sandbox.Application",
-    "ApplicationUnitTest": "Sandbox.Application.UnitTest"
-  }
-}

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-gimme", "dotnet-gimme\dotnet-gimme.csproj", "{DB2305BD-21B5-4665-95F7-195354E7AC9D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gimme", "gimme\gimme.csproj", "{D3DF0590-74E4-4D62-9194-73273BC4E009}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{301D3155-62E8-4E83-BFCD-13EF331B5C52}"
@@ -18,10 +16,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DB2305BD-21B5-4665-95F7-195354E7AC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DB2305BD-21B5-4665-95F7-195354E7AC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DB2305BD-21B5-4665-95F7-195354E7AC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DB2305BD-21B5-4665-95F7-195354E7AC9D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3DF0590-74E4-4D62-9194-73273BC4E009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3DF0590-74E4-4D62-9194-73273BC4E009}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3DF0590-74E4-4D62-9194-73273BC4E009}.Release|Any CPU.ActiveCfg = Release|Any CPU
