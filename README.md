@@ -1,6 +1,6 @@
 # Gimme!
 
-> CLI tool for dotnet development that gives you want you want ;) 
+> A CLI tool for dotnetcore that gives you want you want ;)
 
 ```
  ==============================================================
