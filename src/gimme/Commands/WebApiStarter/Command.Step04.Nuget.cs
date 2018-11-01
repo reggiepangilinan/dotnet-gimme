@@ -37,10 +37,10 @@ namespace gimme.Commands.WebApiStarter
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package Microsoft.NET.Test.Sdk -f netcoreapp2.1"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package AutoMapper"));
 
-            ConsoleUtil.HiglightedMessage($"Add package reference to {variable.CSPROJ_PersistanceProjectFile}");
-            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_PersistanceProjectFile} package Microsoft.EntityFrameworkCore.SqlServer"));
-            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_PersistanceProjectFile} package Microsoft.EntityFrameworkCore.Tools"));
-            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_PersistanceProjectFile} package Microsoft.Extensions.Configuration.Json"));
+            ConsoleUtil.HiglightedMessage($"Add package reference to {variable.CSPROJ_PersistenceProjectFile}");
+            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_PersistenceProjectFile} package Microsoft.EntityFrameworkCore.SqlServer"));
+            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_PersistenceProjectFile} package Microsoft.EntityFrameworkCore.Tools"));
+            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_PersistenceProjectFile} package Microsoft.Extensions.Configuration.Json"));
 
             ConsoleUtil.HiglightedMessage($"Add package reference to {variable.CSPROJ_ServicesProjectFile}");
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ServicesProjectFile} package RestSharp"));

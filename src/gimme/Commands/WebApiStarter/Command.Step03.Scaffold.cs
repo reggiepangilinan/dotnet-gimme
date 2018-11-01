@@ -101,9 +101,9 @@ namespace gimme.Commands.WebApiStarter
                               ResourceUtil.GetResourceText("WAS_AppSettingsJson").Replace("{{solutionname}}", variable.SolutionName));
 
             ///
-            ConsoleUtil.HiglightedMessage($"Creating DbContext {variable.CSPROJ_PersistanceProjectFile}");
-            var persistancePath = Path.Combine(variable.SolutionBasePath, variable.PersistanceProjectName);
-            var contextPath = Path.Combine(persistancePath, "Context");
+            ConsoleUtil.HiglightedMessage($"Creating DbContext {variable.CSPROJ_PersistenceProjectFile}");
+            var PersistencePath = Path.Combine(variable.SolutionBasePath, variable.PersistenceProjectName);
+            var contextPath = Path.Combine(PersistencePath, "Context");
             filesService.CreateDirectory(contextPath);
 
             var dbContext = $"{variable.SolutionName}DbContext";
@@ -111,14 +111,14 @@ namespace gimme.Commands.WebApiStarter
 
             var dbContextFile = Path.Combine(contextPath, $"{dbContext}.cs");
             filesService.WriteAllTextToFile(dbContextFile,
-                                ResourceUtil.GetResourceText("WAS_Persistance_DbContext").Replace("{{solutionname}}", variable.SolutionName));
+                                ResourceUtil.GetResourceText("WAS_Persistence_DbContext").Replace("{{solutionname}}", variable.SolutionName));
 
             var dbContextFactoryFile = Path.Combine(contextPath, $"{dbContextFactory}.cs");
             filesService.WriteAllTextToFile(dbContextFactoryFile,
-                    ResourceUtil.GetResourceText("WAS_Persistance_DbContextFactory").Replace("{{solutionname}}", variable.SolutionName));
+                    ResourceUtil.GetResourceText("WAS_Persistence_DbContextFactory").Replace("{{solutionname}}", variable.SolutionName));
 
-            var appSettingsJsonPersistance = Path.Combine(persistancePath, "appsettings.json");
-            filesService.WriteAllTextToFile(appSettingsJsonPersistance,
+            var appSettingsJsonPersistence = Path.Combine(PersistencePath, "appsettings.json");
+            filesService.WriteAllTextToFile(appSettingsJsonPersistence,
                               ResourceUtil.GetResourceText("WAS_AppSettingsJson").Replace("{{solutionname}}", variable.SolutionName));
         }
     }

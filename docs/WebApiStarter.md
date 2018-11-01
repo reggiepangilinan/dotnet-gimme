@@ -31,9 +31,9 @@ To initialize database. Create the initial migration
 
 > Make sure you already created an entitity that is wired in the DbContext
 
-Go to the `Persistance` project
+Go to the `Persistence` project
 ```
-cd ProjectName.Persistance
+cd ProjectName.Persistence
 ```
 Then execute
 ```
@@ -58,7 +58,7 @@ You should see a `Migrations` folder with the initial one created.
 
 - **Application.UnitTest** - Project that contains the Application Unit Tests.
 
-- **Persistance** - Project that contains
+- **Persistence** - Project that contains
     - EF DbContext
     - EF Migrations
     - EF Entity Mapping
@@ -115,7 +115,7 @@ When the solution is generated it will the folder structure below. You can exten
       ...
       TODO
       ...
-  /SolutionName.Persistance
+  /SolutionName.Persistence
         |--Context
         |--Migrations
 

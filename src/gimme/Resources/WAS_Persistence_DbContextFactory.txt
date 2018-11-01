@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace {{solutionname}}.Persistance.Context {
+namespace {{solutionname}}.Persistence.Context {
     public class {{solutionname}}DbContextFactory : IDesignTimeDbContextFactory<{{solutionname}}DbContext> {
         public static IConfigurationRoot Configuration { get; set; }
         public {{solutionname}}DbContextFactory () {

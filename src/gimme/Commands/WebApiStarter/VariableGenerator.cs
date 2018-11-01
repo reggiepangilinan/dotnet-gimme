@@ -19,7 +19,7 @@ namespace gimme.Commands.WebApiStarter
         public string ApplicationUnitTestProjectName => $"{solutionName}.ApplicationUnitTest";
         public string ServicesProjectName => $"{solutionName}.Services";
         public string DomainProjectName => $"{solutionName}.Domain";
-        public string PersistanceProjectName => $"{solutionName}.Persistance";
+        public string PersistenceProjectName => $"{solutionName}.Persistence";
 
         public string SolutionBasePath => Path.Combine(Environment.CurrentDirectory, $"{SolutionName}/");
 
@@ -31,7 +31,7 @@ namespace gimme.Commands.WebApiStarter
         public string CSPROJ_ApplicationUnitTestProjectFile => $"{SolutionName}/{ApplicationUnitTestProjectName}/{ApplicationUnitTestProjectName}.csproj";
         public string CSPROJ_ServicesProjectFile => $"{SolutionName}/{ServicesProjectName}/{ServicesProjectName}.csproj";
         public string CSPROJ_DomainProjectFile => $"{SolutionName}/{DomainProjectName}/{DomainProjectName}.csproj";
-        public string CSPROJ_PersistanceProjectFile => $"{SolutionName}/{PersistanceProjectName}/{PersistanceProjectName}.csproj";
+        public string CSPROJ_PersistenceProjectFile => $"{SolutionName}/{PersistenceProjectName}/{PersistenceProjectName}.csproj";
 
 
     }

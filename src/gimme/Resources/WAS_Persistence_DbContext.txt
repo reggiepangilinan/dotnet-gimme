@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace {{solutionname}}.Persistance.Context
+namespace {{solutionname}}.Persistence.Context
 {
     public class {{solutionname}}DbContext : Microsoft.EntityFrameworkCore.DbContext
     {
