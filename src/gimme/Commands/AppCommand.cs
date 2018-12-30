@@ -27,14 +27,14 @@ namespace gimme.Commands
 
         public void OnExecute()
         {
-            if (!filesService.DirectoryExists(GimmeConfiguration.ApplicationProjectName))
-                throw new DirectoryNotFoundException($"Directory `{GimmeConfiguration.ApplicationProjectName}` does not exists.");
+            //if (!filesService.DirectoryExists(GimmeConfiguration.ApplicationProjectName))
+            //    throw new DirectoryNotFoundException($"Directory `{GimmeConfiguration.ApplicationProjectName}` does not exists.");
 
             var commandCs = "Command.cs";
             var validatorCs = "CommandValidator.cs";
 
 
-            var appNamespace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Commands.{CommandName}";
+            var appNamespace = $"{GimmeConfiguration.ApplicationProjectName.Replace("\\", ".")}.{GroupName}.Commands.{CommandName}";
             var appDirectory = Path.Combine(
                                                 Environment.CurrentDirectory,
                                                 GimmeConfiguration.ApplicationProjectName,

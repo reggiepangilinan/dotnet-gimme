@@ -6,6 +6,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <PackageId>dotnet-gimme</PackageId>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -29,11 +29,11 @@ namespace gimme.Commands
 
         public void OnExecute()
         {
-            if (!filesService.DirectoryExists(GimmeConfiguration.ApplicationProjectName))
-                throw new DirectoryNotFoundException($"Directory `{GimmeConfiguration.ApplicationProjectName}` does not exists.");
+            //if (!filesService.DirectoryExists(GimmeConfiguration.ApplicationProjectName))
+            //    throw new DirectoryNotFoundException($"Directory `{GimmeConfiguration.ApplicationProjectName}` does not exists.");
 
             var modelCs = $"{ModelName}.cs";
-            var appnamespace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Models";
+            var appnamespace = $"{GimmeConfiguration.ApplicationProjectName.Replace("\\", ".")}.{GroupName}.Models";
             var appDirectory = Path.Combine(
                                                 Environment.CurrentDirectory,
                                                 GimmeConfiguration.ApplicationProjectName,

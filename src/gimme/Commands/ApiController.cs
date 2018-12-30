@@ -26,8 +26,8 @@ namespace gimme.Commands
 
         public void OnExecute()
         {
-            if (!filesService.DirectoryExists(GimmeConfiguration.WebApiProjectName))
-                throw new DirectoryNotFoundException($"Could not find Web Api Project Folder '{GimmeConfiguration.WebApiProjectName}'");
+            //if (!filesService.DirectoryExists(GimmeConfiguration.WebApiProjectName))
+            //    throw new DirectoryNotFoundException($"Could not find Web Api Project Folder '{GimmeConfiguration.WebApiProjectName}'");
 
             var apiDirectory = Path.Combine(
                 Environment.CurrentDirectory,
@@ -35,7 +35,7 @@ namespace gimme.Commands
                                                 "Controllers"
                                                );
             var controllerCs = $"{ControllerName}.cs";
-            var appnamespace = $"{GimmeConfiguration.WebApiProjectName}.Controllers";
+            var appnamespace = $"{GimmeConfiguration.WebApiProjectName.Replace("\\",".")}.Controllers";
             var controllerFile = Path.Combine(apiDirectory, controllerCs);
 
             if (!filesService.DirectoryExists(apiDirectory))

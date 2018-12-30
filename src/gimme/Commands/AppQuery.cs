@@ -28,8 +28,8 @@ namespace gimme.Commands
 
         public void OnExecute()
         {
-            if (!filesService.DirectoryExists(GimmeConfiguration.ApplicationProjectName))
-                throw new DirectoryNotFoundException($"Directory `{GimmeConfiguration.ApplicationProjectName}` does not exists.");
+            //if (!filesService.DirectoryExists(GimmeConfiguration.ApplicationProjectName))
+            //    throw new DirectoryNotFoundException($"Directory `{GimmeConfiguration.ApplicationProjectName}` does not exists.");
 
             var appDirectory = Path.Combine(
                                                 Environment.CurrentDirectory,
@@ -39,7 +39,7 @@ namespace gimme.Commands
                                                 QueryName
                                                );
             var queryCs = "Query.cs";
-            var appnamespace = $"{GimmeConfiguration.ApplicationProjectName}.{GroupName}.Queries.{QueryName}";
+            var appnamespace = $"{GimmeConfiguration.ApplicationProjectName.Replace("\\", ".")}.{GroupName}.Queries.{QueryName}";
             var queryFile = Path.Combine(appDirectory, queryCs);
 
             if (!filesService.DirectoryExists(appDirectory))
