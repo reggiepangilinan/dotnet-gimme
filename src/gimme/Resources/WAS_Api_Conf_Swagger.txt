@@ -3,31 +3,58 @@ using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using NJsonSchema;
 using NSwag;
 using NSwag.AspNetCore;
 using NSwag.SwaggerGeneration.Processors.Security;
 
 namespace {{solutionname}}.Api.Configurations {
-    public static class Swagger {
-        internal static void ConfigureSwagger (IApplicationBuilder app, IHostingEnvironment env) {
-            app.UseSwaggerUi3 (typeof (Swagger).GetTypeInfo ().Assembly, s => {
-                s.GeneratorSettings.Title = "{{solutionname}}";
-                s.GeneratorSettings.Description = $"Description for {{solutionname}} (Env: {env.EnvironmentName})";
-                s.GeneratorSettings.DefaultUrlTemplate = "{controller}/{action}/{id?}";
-                s.GeneratorSettings.DefaultPropertyNameHandling = PropertyNameHandling.CamelCase;
 
-                // TODO: Uncomment if you want to secure endpoints
-                // s.GeneratorSettings.OperationProcessors.Add (new OperationSecurityScopeProcessor ("JWT Token"));
-                // s.GeneratorSettings.DocumentProcessors.Add (new SecurityDefinitionAppender ("JWT Token",
-                //     new SwaggerSecurityScheme {
-                //             Type = SwaggerSecuritySchemeType.ApiKey,
-                //             Name = "Authorization",
-                //             Description = "Set value 'Bearer ' + valid JWT token into the field",
-                //             In = SwaggerSecurityApiKeyLocation.Header,
-                //             Scheme = JwtBearerDefaults.AuthenticationScheme
-                //     }));
+    public static class Swagger
+    {
+        /// <summary>
+        /// Register Swagger
+        /// </summary>
+        internal static void RegisterSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerDocument(c =>
+            {
+                c.DocumentName = "v1";
+                c.Title = "{{solutionname}} Api";
+                c.Version = "v1";
+                c.Description = "RESTFul Api for {{solutionname}}";
+                c.DocumentProcessors.Add(new SecurityDefinitionAppender("JWT", new SwaggerSecurityScheme
+                {
+                    Type = SwaggerSecuritySchemeType.ApiKey,
+                    Name = "Authorization",
+                    In = SwaggerSecurityApiKeyLocation.Header,
+                    Description = "Copy 'Bearer ' + valid JWT token into field"
+                }));
+                c.OperationProcessors.Add(new OperationSecurityScopeProcessor("JWT"));
             });
+
         }
+
+        /// <summary>
+        /// Configure Swagger
+        /// </summary>
+        internal static void ConfigureSwagger(IApplicationBuilder app)
+        {
+            app.UseSwagger(settings =>
+            {
+                settings.PostProcess = (document, request) =>
+                {
+                    document.Info.Contact = new SwaggerContact
+                    {
+                        Name = "Your company name.",
+                        Email = string.Empty,
+                        Url = "http://yourwebsite.com"
+                    };
+                };
+            });
+            app.UseSwaggerUi3();
+        }
+
     }
 }

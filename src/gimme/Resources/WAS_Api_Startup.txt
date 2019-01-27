@@ -25,6 +25,7 @@ namespace {{solutionname}}.Api
         public void ConfigureServices(IServiceCollection services)
         {
 			RegisterEntityFramework(services, Configuration);
+			RegisterSwagger(services);
             RegisterMediatR(services);
             RegisterAutoMapper(services);
             IMvcBuilder mvcBuilder = RegisterMvc(services);
@@ -36,7 +37,7 @@ namespace {{solutionname}}.Api
         {
             Console.WriteLine("Current Environment");
             Console.WriteLine(env.EnvironmentName);
-            ConfigureSwagger(app, env);
+            ConfigureSwagger(app);
             ConfigureMvc(app);
 			ConfigureDatabaseMigrations(context);
 

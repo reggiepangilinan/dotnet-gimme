@@ -8,13 +8,13 @@ namespace gimme
         Name = "gimme",
         FullName = "gimme",
         Description = "CLI tool that generates enterprise application templates for you in C#."),
-        Subcommand(Constants.Command.WEB_API_STARTER, typeof(Commands.WebApiStarter.Command)),
-        Subcommand(Constants.Command.APP_COMMAND, typeof(Commands.AppCommand)),
-        Subcommand(Constants.Command.APP_QUERY, typeof(Commands.AppQuery)),
-        Subcommand(Constants.Command.APP_MODEL, typeof(Commands.AppModel)),
-        Subcommand(Constants.Command.APP_EXCEPTION, typeof(Commands.AppException)),
-        Subcommand(Constants.Command.API_CONTROLLER, typeof(Commands.ApiController)),
-        Subcommand(Constants.Command.SETTINGS, typeof(Commands.GimmeSettings)),
+        Subcommand(typeof(Commands.WebApiStarter.Command)),
+        Subcommand(typeof(Commands.AppCommand)),
+        Subcommand(typeof(Commands.AppQuery)),
+        Subcommand(typeof(Commands.AppModel)),
+        Subcommand(typeof(Commands.AppException)),
+        Subcommand(typeof(Commands.ApiController)),
+        Subcommand(typeof(Commands.GimmeSettings)),
     ]
     public class Gimme
     {

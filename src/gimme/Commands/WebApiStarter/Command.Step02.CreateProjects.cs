@@ -10,22 +10,22 @@ namespace gimme.Commands.WebApiStarter
         private void Step02_CreateProjects()
         {
             ConsoleUtil.HiglightedMessage("Creating WebApi");
-            Console.WriteLine(shellService.Exec($"dotnet new webapi -n {variable.ApiProjectName} -o {SolutionName}/{variable.ApiProjectName} -f netcoreapp2.1"));
+            Console.WriteLine(shellService.Exec($"dotnet new webapi -n {variable.ApiProjectName} -o {SolutionName}/{variable.ApiProjectName} -f netcoreapp2.2"));
 
             ConsoleUtil.HiglightedMessage("Creating Application Project");
-            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.ApplicationProjectName} -o {SolutionName}/{variable.ApplicationProjectName} -f netcoreapp2.1"));
+            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.ApplicationProjectName} -o {SolutionName}/{variable.ApplicationProjectName} -f netcoreapp2.2"));
 
             ConsoleUtil.HiglightedMessage("Creating Application Unit Test Project");
-            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.ApplicationUnitTestProjectName} -o {SolutionName}/{variable.ApplicationUnitTestProjectName} -f netcoreapp2.1"));
+            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.ApplicationUnitTestProjectName} -o {SolutionName}/{variable.ApplicationUnitTestProjectName} -f netcoreapp2.2"));
 
             ConsoleUtil.HiglightedMessage("Creating Services Project");
-            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.ServicesProjectName} -o {SolutionName}/{variable.ServicesProjectName}  -f netcoreapp2.1"));
+            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.ServicesProjectName} -o {SolutionName}/{variable.ServicesProjectName}  -f netcoreapp2.2"));
 
             ConsoleUtil.HiglightedMessage("Creating Domain Project");
-            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.DomainProjectName} -o {SolutionName}/{variable.DomainProjectName}  -f netcoreapp2.1"));
+            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.DomainProjectName} -o {SolutionName}/{variable.DomainProjectName}  -f netcoreapp2.2"));
 
             ConsoleUtil.HiglightedMessage("Creating Persistance Project");
-            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.PersistanceProjectName} -o {SolutionName}/{variable.PersistanceProjectName} -f netcoreapp2.1"));
+            Console.WriteLine(shellService.Exec($"dotnet new classlib -n {variable.PersistanceProjectName} -o {SolutionName}/{variable.PersistanceProjectName} -f netcoreapp2.2"));
 
             ConsoleUtil.HiglightedMessage("Add projects to solution");
             Console.WriteLine(shellService.Exec($"dotnet sln {variable.SLN_SolutionFile} add {variable.CSPROJ_WebApiProjectFile}"));
