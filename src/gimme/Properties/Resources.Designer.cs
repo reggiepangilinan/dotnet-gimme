@@ -266,7 +266,7 @@ namespace gimme.Properties {
         ///using Microsoft.EntityFrameworkCore;
         ///using Microsoft.Extensions.Configuration;
         ///using Microsoft.Extensions.DependencyInjection;
-        ///using {{solutionname}}.Persistance.Context;
+        ///using {{solutionname}}.Persistence.Context;
         ///
         ///namespace {{solutionname}}.Api.Configurations
         ///{
@@ -572,7 +572,7 @@ namespace gimme.Properties {
         /// <summary>
         ///   Looks up a localized string similar to using Microsoft.EntityFrameworkCore;
         ///
-        ///namespace {{solutionname}}.Persistance.Context
+        ///namespace {{solutionname}}.Persistence.Context
         ///{
         ///    public class {{solutionname}}DbContext : Microsoft.EntityFrameworkCore.DbContext
         ///    {
@@ -586,9 +586,9 @@ namespace gimme.Properties {
         ///    }
         ///}.
         /// </summary>
-        internal static string WAS_Persistance_DbContext {
+        internal static string WAS_Persistence_DbContext {
             get {
-                return ResourceManager.GetString("WAS_Persistance_DbContext", resourceCulture);
+                return ResourceManager.GetString("WAS_Persistence_DbContext", resourceCulture);
             }
         }
         
@@ -599,16 +599,16 @@ namespace gimme.Properties {
         ///using Microsoft.EntityFrameworkCore.Design;
         ///using Microsoft.Extensions.Configuration;
         ///
-        ///namespace {{solutionname}}.Persistance.Context {
+        ///namespace {{solutionname}}.Persistence.Context {
         ///    public class {{solutionname}}DbContextFactory : IDesignTimeDbContextFactory&lt;{{solutionname}}DbContext&gt; {
         ///        public static IConfigurationRoot Configuration { get; set; }
         ///        public {{solutionname}}DbContextFactory () {
         ///            var builder = new ConfigurationBuilder ()
         ///             [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string WAS_Persistance_DbContextFactory {
+        internal static string WAS_Persistence_DbContextFactory {
             get {
-                return ResourceManager.GetString("WAS_Persistance_DbContextFactory", resourceCulture);
+                return ResourceManager.GetString("WAS_Persistence_DbContextFactory", resourceCulture);
             }
         }
     }

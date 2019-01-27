@@ -6,7 +6,12 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <PackageId>dotnet-gimme</PackageId>
-    <Version>1.0.3</Version>
+    <PackageVersion>1.0.1</PackageVersion>
+    <Owners>Reggie Pangilinan</Owners>
+    <PackageProjectUrl>https://www.nuget.org/packages/dotnet-gimme</PackageProjectUrl>
+    <Summary>A CLI tool for dotnetcore that gives you want you want ;)</Summary>
+    <Title>Gimme!</Title>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -79,10 +84,10 @@
     <Content Include="Resources\WAS_GitIgnore.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WAS_Persistance_DbContext.txt">
+    <Content Include="Resources\WAS_Persistence_DbContext.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\WAS_Persistance_DbContextFactory.txt">
+    <Content Include="Resources\WAS_Persistence_DbContextFactory.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

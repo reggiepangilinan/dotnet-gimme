@@ -1,6 +1,6 @@
 # Gimme!
 
-> CLI tool for dotnet development that gives you want you want ;) 
+> A CLI tool for dotnetcore that gives you want you want ;)
 
 ```
  ==============================================================
@@ -30,37 +30,29 @@ Once installed, the command `gimme` can now be used.
 
 ## Documentation
 
-> TODO : Create proper documentation
-
-- SOLID Principle
-- CLEAN Architecture
-- Mediator + CQRS Pattern
-- Validations - FluentValidations
-- Data Access using Entity Framework Core
-- EF Core Migrations
-  - https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/
-
-To initialize database. Create the initial migration
-
-> Make sure you already created an entitity that is wired in the DbContext
-
-Go to the `Persistance` project
 ```
-cd ProjectName.Persistance
+Usage: gimme [options] [command]
+
+Options:
+  -?|-h|--help    Show help information
+
+Commands:
+  api-controller  Web Api Controller that derives from Mediator Controller
+  app-command     Application Command (CQRS)
+  app-exception   Application Exception
+  app-model       Application Model
+  app-query       Application Query (CQRS)
+  settings        Creates a 'gimmesettings.json' in the current directory
+  webapi-starter  An ASP.NET Core WebApi Starter Kit.
+
+Run 'gimme [command] --help' for more information about a command.
 ```
-Then execute
-```
-dotnet ef migrations add InitialCreate
-```
-You should see a `Migrations` folder with the initial one created.
-
-- AutoMapper
-- Swagger - Open Api Specs
-- Exception Handling
 
 
+- [Web Api Starter](https://github.com/reggieboyYEAH/dotnet-gimme/blob/master/docs/WebApiStarter.md)
+- Roadmap
 
-### Development
+## Development
 Make sure you are in the `gimme` folder
 ```
 cd gimme

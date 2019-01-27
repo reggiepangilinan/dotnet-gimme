@@ -9,7 +9,7 @@ using static {{solutionname}}.Api.Configurations.MediatR;
 using static {{solutionname}}.Api.Configurations.Mvc;
 using static {{solutionname}}.Api.Configurations.Swagger;
 using static {{solutionname}}.Api.Configurations.Db;
-using {{solutionname}}.Persistance.Context;
+using {{solutionname}}.Persistence.Context;
 
 namespace {{solutionname}}.Api
 {

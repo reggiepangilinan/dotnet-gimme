@@ -187,10 +187,10 @@
   <data name="WAS_GitIgnore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\was_gitignore.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="WAS_Persistance_DbContext" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\was_persistance_dbcontext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="WAS_Persistence_DbContext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\was_Persistence_dbcontext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="WAS_Persistance_DbContextFactory" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\was_persistance_dbcontextfactory.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="WAS_Persistence_DbContextFactory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\was_Persistence_dbcontextfactory.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>
