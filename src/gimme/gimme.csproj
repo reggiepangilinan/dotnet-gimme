@@ -6,12 +6,12 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <PackageId>dotnet-gimme</PackageId>
-    <PackageVersion>1.0.1</PackageVersion>
     <Owners>Reggie Pangilinan</Owners>
     <PackageProjectUrl>https://www.nuget.org/packages/dotnet-gimme</PackageProjectUrl>
     <Summary>A CLI tool for dotnetcore that gives you want you want ;)</Summary>
     <Title>Gimme!</Title>
     <Version>1.0.4</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
