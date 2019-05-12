@@ -1,0 +1,42 @@
+namespace {{solutionname}}.Application
+{
+    public abstract class Response
+    {
+        protected Response(string message = null)
+        {
+            Message = message;
+        }
+        public string Message { get; set; }
+    }
+
+    public class NotFoundResponse : Response
+    {
+        public NotFoundResponse(string message = null) : base(message)
+        {
+        }
+    }
+
+    public class BadRequestResponse : Response
+    {
+        public BadRequestResponse(string message = null) : base(message)
+        {
+        }
+    }
+
+    public class SuccessResponse : Response
+    {
+        public SuccessResponse(string message = null) : base(message)
+        {
+        }
+    }
+
+    public class SuccessResponse<T> : Response
+    {
+        public SuccessResponse(T data)
+        {
+            Data = data;
+            Message = "Success";
+        }
+        public T Data { get; set; }
+    }
+}

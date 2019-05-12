@@ -11,20 +11,20 @@ namespace {{namespace}}
     /// Command
     /// </summary>
     [JsonSchema("{{name}}Command")]
-    public class Command : IRequest<YouReturnTypeHere>
+    public class Command : IRequest<Response>
     {
     }
 
     /// <summary>
     /// Command Handler
     /// </summary>
-    public class CommandHandler : IRequestHandler<Command, YouReturnTypeHere>
+    public class CommandHandler : IRequestHandler<Command, Response>
     {
         public CommandHandler()
         {
 
         }
-        public async Task<YouReturnTypeHere> Handle(Command request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

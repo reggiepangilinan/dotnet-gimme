@@ -181,6 +181,9 @@
   <data name="WAS_App_RecordNotFoundException" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\was_app_recordnotfoundexception.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="WAS_App_Response" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\was_app_response.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="WAS_Domain_BaseEntity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\was_domain_baseentity.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -188,9 +191,9 @@
     <value>..\resources\was_gitignore.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="WAS_Persistence_DbContext" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\was_Persistence_dbcontext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\resources\was_persistence_dbcontext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="WAS_Persistence_DbContextFactory" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\was_Persistence_dbcontextfactory.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\resources\was_persistence_dbcontextfactory.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

@@ -35,7 +35,9 @@ namespace gimme.Commands
                                                 "Controllers"
                                                );
             var controllerCs = $"{ControllerName}.cs";
-            var appnamespace = $"{GimmeConfiguration.WebApiProjectName.Replace("\\",".")}.Controllers";
+            var controllernamespace = $"{GimmeConfiguration.WebApiProjectName.Replace("\\",".")}.Controllers";
+            var appnamespace = $"{GimmeConfiguration.ApplicationProjectName.Replace("\\", ".")}";
+
             var controllerFile = Path.Combine(apiDirectory, controllerCs);
 
             if (!filesService.DirectoryExists(apiDirectory))
@@ -43,8 +45,9 @@ namespace gimme.Commands
 
             filesService.WriteAllTextToFile(controllerFile,
                   ResourceUtil.GetResourceText("Api_Controller")
-                  .Replace("{{namespace}}", appnamespace)
-                              .Replace("{{name}}", ControllerName)
+                  .Replace("{{namespace}}", controllernamespace)
+                  .Replace("{{appnamespace}}", appnamespace)
+                  .Replace("{{name}}", ControllerName)
                  );
 
             ConsoleUtil.SuccessMessage($"Mediator Controller succesfully generated!");

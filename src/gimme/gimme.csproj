@@ -10,9 +10,14 @@
     <PackageProjectUrl>https://www.nuget.org/packages/dotnet-gimme</PackageProjectUrl>
     <Summary>A CLI tool for dotnetcore that gives you want you want ;)</Summary>
     <Title>Gimme!</Title>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/reggieboyYEAH/dotnet-gimme</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\WAS_App_Response.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Resources\Api_Controller.txt">
@@ -73,6 +78,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\WAS_App_RecordAlreadyExistsException.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\WAS_App_Response.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\WAS_App_RecordNotFoundException.txt">

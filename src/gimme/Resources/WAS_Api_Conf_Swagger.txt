@@ -1,13 +1,11 @@
-using System;
-using System.Reflection;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using NJsonSchema;
 using NSwag;
 using NSwag.AspNetCore;
 using NSwag.SwaggerGeneration.Processors.Security;
+
+
 
 namespace {{solutionname}}.Api.Configurations {
 
@@ -24,13 +22,15 @@ namespace {{solutionname}}.Api.Configurations {
                 c.Title = "{{solutionname}} Api";
                 c.Version = "v1";
                 c.Description = "RESTFul Api for {{solutionname}}";
-                c.DocumentProcessors.Add(new SecurityDefinitionAppender("JWT", new SwaggerSecurityScheme
+
+                c.AddSecurity("JWT", Enumerable.Empty<string>(), new SwaggerSecurityScheme
                 {
                     Type = SwaggerSecuritySchemeType.ApiKey,
                     Name = "Authorization",
                     In = SwaggerSecurityApiKeyLocation.Header,
                     Description = "Copy 'Bearer ' + valid JWT token into field"
-                }));
+                });
+
                 c.OperationProcessors.Add(new OperationSecurityScopeProcessor("JWT"));
             });
 

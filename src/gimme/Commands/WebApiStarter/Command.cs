@@ -1,5 +1,6 @@
 ﻿using gimme.Services.Files;
 using gimme.Shell.Services;
+using gimme.Utils;
 using McMaster.Extensions.CommandLineUtils;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -37,6 +38,7 @@ namespace gimme.Commands.WebApiStarter
             Step02_CreateProjects();
             Step03_Scaffold();
             Step04_ConfigureNugetReference();
+            ConsoleUtil.SuccessMessage($"Done! ^_^");
         }
     }
 }

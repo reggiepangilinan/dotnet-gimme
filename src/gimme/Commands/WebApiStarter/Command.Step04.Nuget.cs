@@ -32,8 +32,8 @@ namespace gimme.Commands.WebApiStarter
             ConsoleUtil.HiglightedMessage($"Add package reference to {variable.CSPROJ_ApplicationUnitTestProjectFile}");
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package Microsoft.EntityFrameworkCore.InMemory"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package Moq"));
-            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package nunit -f netcoreapp2.2"));
-            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package NUnit3TestAdapter -f netcoreapp2.2"));
+            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package xunit -f netcoreapp2.2"));
+            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package xunit.runner.visualstudio -f netcoreapp2.2"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package Microsoft.NET.Test.Sdk -f netcoreapp2.2"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationUnitTestProjectFile} package AutoMapper"));
 

@@ -2,19 +2,26 @@ using System.ComponentModel;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Commands = {{appnamespace}}.YourApplicationGroupHere.Commands;
+using Models = {{appnamespace}}.YourApplicationGroupHere.Models;
+using Queries = {{appnamespace}}.YourApplicationGroupHere.Queries;
 
 namespace {{namespace}}
 {
-   [Route ("api/[controller]")]
+    [Route ("api/[controller]")]
     public class {{name}} : MediatorController {
+
         [HttpGet]
-        [DescriptionAttribute ("Your endpoint description goes here.")]
-        [ProducesResponseType (typeof (YourReturnType), (int) HttpStatusCode.OK)]
-        public async Task<IActionResult> Get()
+        [Description("Your endpoint description goes here.")]
+        public async Task<ActionResult<Models.YourModelHere>> Get()
         {
             //TODO: Implement Realistic Implementation
-            await Mediator.Send (new YourCommandOrQueryHere() {});
-            return Ok();
+            var result = await Mediator.Send (new YourCommandOrQueryHere() {});
+
+			if(result == null)
+				return NotFound();
+
+            return Ok(result);
         }
     }
 }

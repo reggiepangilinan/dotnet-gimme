@@ -35,6 +35,12 @@ namespace gimme.Commands.WebApiStarter
             filesService.WriteAllTextToFile(recordNotFoundException,
                               ResourceUtil.GetResourceText("WAS_App_RecordNotFoundException").Replace("{{solutionname}}", variable.SolutionName));
 
+            ConsoleUtil.HiglightedMessage($"Creating Application Response {variable.CSPROJ_ApplicationProjectFile}");
+
+            var responseClasses = Path.Combine(ApplicationPath, "Response.cs");
+            filesService.WriteAllTextToFile(responseClasses,
+                              ResourceUtil.GetResourceText("WAS_App_Response").Replace("{{solutionname}}", variable.SolutionName));
+
             ///
             ConsoleUtil.HiglightedMessage($"Creating Web Api Controllers and Filters {variable.CSPROJ_WebApiProjectFile}");
             var WebApiPath = Path.Combine(variable.SolutionBasePath, variable.ApiProjectName);

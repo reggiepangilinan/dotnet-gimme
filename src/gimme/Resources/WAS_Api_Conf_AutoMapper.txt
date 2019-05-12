@@ -5,7 +5,14 @@ namespace {{solutionname}}.Api.Configurations
 {
     public static class AutoMapper {
         internal static void RegisterAutoMapper (IServiceCollection services) {
-            services.AddAutoMapper ();
+            //http://docs.automapper.org/en/stable/Inline-Mapping.html
+            services.AddAutoMapper(
+                configAction =>
+                {
+                    configAction.ValidateInlineMaps = false;
+                },
+                typeof(Application.Response)
+                );
         }
     }
 }

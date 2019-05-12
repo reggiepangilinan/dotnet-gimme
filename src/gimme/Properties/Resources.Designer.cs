@@ -65,17 +65,17 @@ namespace gimme.Properties {
         ///using System.Net;
         ///using System.Threading.Tasks;
         ///using Microsoft.AspNetCore.Mvc;
+        ///using Commands = {{appnamespace}}.YourApplicationGroupHere.Commands;
+        ///using Models = {{appnamespace}}.YourApplicationGroupHere.Models;
+        ///using Queries = {{appnamespace}}.YourApplicationGroupHere.Queries;
         ///
         ///namespace {{namespace}}
         ///{
-        ///   [Route (&quot;api/[controller]&quot;)]
+        ///    [Route (&quot;api/[controller]&quot;)]
         ///    public class {{name}} : MediatorController {
+        ///
         ///        [HttpGet]
-        ///        [DescriptionAttribute (&quot;Your endpoint description goes here.&quot;)]
-        ///        [ProducesResponseType (typeof (YourReturnType), (int) HttpStatusCode.OK)]
-        ///        public async Task&lt;IActionResult&gt; Get()
-        ///        {
-        ///            //TODO: Implement Realistic Implementati [rest of string was truncated]&quot;;.
+        ///        [DescriptionAttribute (&quot;Your endpoint description go [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Api_Controller {
             get {
@@ -97,16 +97,16 @@ namespace gimme.Properties {
         ///    /// Command
         ///    /// &lt;/summary&gt;
         ///    [JsonSchema(&quot;{{name}}Command&quot;)]
-        ///    public class Command : IRequest&lt;YouReturnTypeHere&gt;
+        ///    public class Command : IRequest&lt;Response&gt;
         ///    {
         ///    }
         ///
         ///    /// &lt;summary&gt;
         ///    /// Command Handler
         ///    /// &lt;/summary&gt;
-        ///    public class CommandHandler : IRequestHandler&lt;Command, YouReturnTypeHere&gt;
+        ///    public class CommandHandler : IRequestHandler&lt;Command, Response&gt;
         ///    {
-        ///        publi [rest of string was truncated]&quot;;.
+        ///        public CommandHandler() [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string App_Command {
             get {
@@ -250,10 +250,13 @@ namespace gimme.Properties {
         ///{
         ///    public static class AutoMapper {
         ///        internal static void RegisterAutoMapper (IServiceCollection services) {
-        ///            services.AddAutoMapper ();
-        ///        }
-        ///    }
-        ///}.
+        ///            //http://docs.automapper.org/en/stable/Inline-Mapping.html
+        ///            services.AddAutoMapper(
+        ///                configAction =&gt;
+        ///                {
+        ///                    configAction.ValidateInlineMaps = false;
+        ///                },
+        ///                typeof(Applicati [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WAS_Api_Conf_AutoMapper {
             get {
@@ -350,20 +353,26 @@ namespace gimme.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using System;
-        ///using System.Reflection;
-        ///using Microsoft.AspNetCore.Authentication.JwtBearer;
+        ///   Looks up a localized string similar to using System.Linq;
         ///using Microsoft.AspNetCore.Builder;
-        ///using Microsoft.AspNetCore.Hosting;
-        ///using NJsonSchema;
+        ///using Microsoft.Extensions.DependencyInjection;
         ///using NSwag;
         ///using NSwag.AspNetCore;
         ///using NSwag.SwaggerGeneration.Processors.Security;
         ///
+        ///
+        ///
         ///namespace {{solutionname}}.Api.Configurations {
-        ///    public static class Swagger {
-        ///        internal static void ConfigureSwagger (IApplicationBuilder app, IHostingEnvironment env) {
-        ///            app.UseSwaggerUi3 (typeof (Swagger [rest of string was truncated]&quot;;.
+        ///
+        ///    public static class Swagger
+        ///    {
+        ///        /// &lt;summary&gt;
+        ///        /// Register Swagger
+        ///        /// &lt;/summary&gt;
+        ///        internal static void RegisterSwagger(IServiceCollection services)
+        ///        {
+        ///            services.AddSwaggerDocument(c =&gt;
+        ///          [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WAS_Api_Conf_Swagger {
             get {
@@ -421,7 +430,8 @@ namespace gimme.Properties {
         ///
         ///namespace {{solutionname}}.Api.Controllers
         ///{
-        ///    public abstract class MediatorController : Controller
+        ///    [ApiController]
+        ///    public abstract class MediatorController : ControllerBase
         ///    {
         ///        private IMediator _mediator;
         ///
@@ -431,9 +441,7 @@ namespace gimme.Properties {
         ///            {
         ///                return _mediator ?? (_mediator = HttpContext.RequestServices.GetService&lt;IMediator&gt;());
         ///            }
-        ///        }
-        ///    }
-        ///}.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WAS_Api_MediatorController {
             get {
@@ -490,6 +498,35 @@ namespace gimme.Properties {
         internal static string WAS_App_RecordNotFoundException {
             get {
                 return ResourceManager.GetString("WAS_App_RecordNotFoundException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to namespace {{solutionname}}.Application
+        ///{
+        ///    public abstract class Response
+        ///    {
+        ///        protected Response(string message = null)
+        ///        {
+        ///            Message = message;
+        ///        }
+        ///        public string Message { get; set; }
+        ///    }
+        ///
+        ///    public class NotFoundResponse : Response
+        ///    {
+        ///        public NotFoundResponse(string message = null) : base(message)
+        ///        {
+        ///        }
+        ///    }
+        ///
+        ///    public class BadRequestResponse : Response
+        ///    {
+        ///        public BadRequestResponse(string message = null) [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WAS_App_Response {
+            get {
+                return ResourceManager.GetString("WAS_App_Response", resourceCulture);
             }
         }
         

@@ -5,7 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace {{solutionname}}.Api.Controllers
 {
-    public abstract class MediatorController : Controller
+    [ApiController]
+    public abstract class MediatorController : ControllerBase
     {
         private IMediator _mediator;
 
