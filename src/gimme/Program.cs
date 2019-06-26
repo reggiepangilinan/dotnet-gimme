@@ -33,6 +33,10 @@ namespace gimme
             catch (Exception ex)
             {
                 var baseException = ex.GetBaseException();
+                ConsoleUtil.HiglightedMessage();
+                ConsoleUtil.HiglightedMessage($"Ooppps! Something wen't wrong.", "(T__T)");
+                ConsoleUtil.HiglightedMessage("Please make sure you're in the correct directory",
+                    "FYI -  You can only execute commands on the root directory of the solution where you have your `gimmesettings.json`");
                 ConsoleUtil.ExceptionMessage(baseException.Message, baseException.StackTrace);
                 return CommandResult(Gimme.EXCEPTION);
             }

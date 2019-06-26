@@ -2,9 +2,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using NSwag;
-using NSwag.AspNetCore;
-using NSwag.SwaggerGeneration.Processors.Security;
-
+using NSwag.Generation.Processors.Security;
 
 
 namespace {{solutionname}}.Api.Configurations {
@@ -16,18 +14,18 @@ namespace {{solutionname}}.Api.Configurations {
         /// </summary>
         internal static void RegisterSwagger(IServiceCollection services)
         {
-            services.AddSwaggerDocument(c =>
+            services.AddOpenApiDocument(c =>
             {
                 c.DocumentName = "v1";
                 c.Title = "{{solutionname}} Api";
                 c.Version = "v1";
                 c.Description = "RESTFul Api for {{solutionname}}";
 
-                c.AddSecurity("JWT", Enumerable.Empty<string>(), new SwaggerSecurityScheme
+                c.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
                 {
-                    Type = SwaggerSecuritySchemeType.ApiKey,
+                    Type = OpenApiSecuritySchemeType.ApiKey,
                     Name = "Authorization",
-                    In = SwaggerSecurityApiKeyLocation.Header,
+                    In = OpenApiSecurityApiKeyLocation.Header,
                     Description = "Copy 'Bearer ' + valid JWT token into field"
                 });
 
@@ -41,11 +39,11 @@ namespace {{solutionname}}.Api.Configurations {
         /// </summary>
         internal static void ConfigureSwagger(IApplicationBuilder app)
         {
-            app.UseSwagger(settings =>
+            app.UseOpenApi(settings =>
             {
                 settings.PostProcess = (document, request) =>
                 {
-                    document.Info.Contact = new SwaggerContact
+                    document.Info.Contact = new OpenApiContact
                     {
                         Name = "Your company name.",
                         Email = string.Empty,

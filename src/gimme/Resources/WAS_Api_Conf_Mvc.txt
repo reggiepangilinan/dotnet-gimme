@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using {{solutionname}}.Api.Filters;
 
@@ -15,8 +17,13 @@ namespace {{solutionname}}.Api.Configurations
             return services.AddMvc (options => {
                 options.Filters.Add (typeof (CustomExceptionFilterAttribute));
                 options.Filters.Add (typeof (ActionValidationFilterAttribute));
-            }).SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)
-              .AddJsonOptions (options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver ());
+            }).SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2)
+			  .AddJsonOptions(options =>
+			  {
+				  options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+				  options.SerializerSettings.Converters.Add(new StringEnumConverter());
+				  options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+			  });
         }
         /// <summary>
         /// Configures the mvc.

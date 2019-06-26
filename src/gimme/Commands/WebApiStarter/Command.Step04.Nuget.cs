@@ -14,14 +14,16 @@ namespace gimme.Commands.WebApiStarter
         private void Step04_ConfigureNugetReference()
         {
             ConsoleUtil.HiglightedMessage($"Add package reference to {variable.CSPROJ_WebApiProjectFile}");
+            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package AutoMapper"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package AutoMapper.Extensions.Microsoft.DependencyInjection"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package FluentValidation.AspNetCore"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package MediatR"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package MediatR.Extensions.Microsoft.DependencyInjection"));
+            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package Microsoft.AspNetCore.Mvc.Api.Analyzers"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package Microsoft.EntityFrameworkCore.SqlServer"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package Microsoft.EntityFrameworkCore.Tools"));
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package Microsoft.Extensions.Configuration.Json"));
-            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package NSwag.AspNetCore"));
+            Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_WebApiProjectFile} package NSwag.AspNetCore -v 13.0.2"));
 
             ConsoleUtil.HiglightedMessage($"Add package reference to {variable.CSPROJ_ApplicationProjectFile}");
             Console.WriteLine(shellService.Exec($"dotnet add {variable.CSPROJ_ApplicationProjectFile} package AutoMapper"));

@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using static {{solutionname}}.Api.Configurations.AutoMapper;
@@ -11,6 +12,7 @@ using static {{solutionname}}.Api.Configurations.Swagger;
 using static {{solutionname}}.Api.Configurations.Db;
 using {{solutionname}}.Persistence.Context;
 
+[assembly: ApiConventionType(typeof(DefaultApiConventions))]
 namespace {{solutionname}}.Api
 {
     public class Startup
