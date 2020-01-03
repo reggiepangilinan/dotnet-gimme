@@ -37,7 +37,9 @@ namespace gimme
                 ConsoleUtil.HiglightedMessage($"Ooppps! Something wen't wrong.", "(T__T)");
                 ConsoleUtil.HiglightedMessage("Please make sure you're in the correct directory",
                     "FYI -  You can only execute commands on the root directory of the solution where you have your `gimmesettings.json`");
+#if (DEBUG)
                 ConsoleUtil.ExceptionMessage(baseException.Message, baseException.StackTrace);
+#endif
                 return CommandResult(Gimme.EXCEPTION);
             }
         }

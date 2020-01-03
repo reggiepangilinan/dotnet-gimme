@@ -18,6 +18,10 @@ namespace gimme.Utils
                 .AddJsonFile("gimmesettings.json");
                 Configuration = builder.Build();
             }
+            else
+            {
+                ConsoleUtil.HiglightedMessage("gimmesettings.json does not exists!");
+            }
         }
 
 
