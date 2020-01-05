@@ -29,6 +29,7 @@ namespace gimme.Utils
         public static string WebApiProjectName => Configuration["Projects:WebApi"];
         public static string ApplicationProjectName => Configuration["Projects:Application"];
         public static string ApplicationProjectUnitTestName => Configuration["Projects:ApplicationUnitTest"];
+        public static string ServicesUnitTestName => Configuration["Projects:ServicesUnitTest"];
 
         public static bool Exists()
         {

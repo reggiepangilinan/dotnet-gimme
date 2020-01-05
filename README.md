@@ -23,7 +23,7 @@
 
 To install `gimme` globally run this command
 ```
-dotnet tool install --global dotnet-gimme --version 1.0.5
+dotnet tool install --global dotnet-gimme --version 1.0.6
 ```
 Once installed, the command `gimme` can now be used.
 

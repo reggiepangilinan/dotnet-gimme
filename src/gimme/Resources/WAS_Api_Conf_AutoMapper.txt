@@ -9,7 +9,8 @@ namespace {{solutionname}}.Api.Configurations
             services.AddAutoMapper(
                 configAction =>
                 {
-                    configAction.ValidateInlineMaps = false;
+                    ///TODO: What happened to inline maps. Do more research?
+                    //configAction.ValidateInlineMaps = false;
                 },
                 typeof(Application.Response)
                 );

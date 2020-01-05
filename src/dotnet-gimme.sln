@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{301D3155-62E8-4E83-BFCD-13EF331B5C52}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
+		..\docs\WebApiStarter.md = ..\docs\WebApiStarter.md
 	EndProjectSection
 EndProject
 Global

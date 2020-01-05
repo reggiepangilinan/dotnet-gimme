@@ -3,6 +3,7 @@
   "Projects" :  {
     "WebApi": "{{name}}.Api",
     "Application": "{{name}}.Application",
-    "ApplicationUnitTest": "{{name}}.ApplicationUnitTest"
+    "ApplicationUnitTest": "{{name}}.ApplicationUnitTest",
+    "ServicesUnitTest": "{{name}}.ServicesUnitTest"
   }
 }

@@ -1,8 +1,9 @@
 ﻿{
-  "Name":  "Sandbox",
-  "Projects" :  {
+  "Name": "Sandbox",
+  "Projects": {
     "WebApi": "Sandbox.Api",
     "Application": "Sandbox.Application",
-    "ApplicationUnitTest": "Sandbox.Application.UnitTest"
+    "ApplicationUnitTest": "Sandbox.ApplicationUnitTest",
+    "ServicesUnitTest": "Sandbox.ServicesUnitTest"
   }
 }

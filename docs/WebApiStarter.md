@@ -2,7 +2,7 @@
 [< Back](https://github.com/reggieboyYEAH/dotnet-gimme/blob/master/README.md)
 
 ## Web Api Starter
-An Asp.Net Core 2.1 Web Api Starter Kit.
+An Asp.Net Core 3.1 Web Api Starter Kit.
 
 It will generate RESTFul Api backend that is enterprise ready.
 
@@ -88,7 +88,6 @@ When the solution is generated it will the folder structure below. You can exten
       |--Controllers {All of your controllers goes here}
       |--Filters
           |---ActionValidationFilterAttribute.cs
-          |---ActionValidationFilterAttribute.cs
       |--Infrastructure
           |---MediatorController.cs
       |--Security
@@ -128,6 +127,19 @@ When the solution is generated it will the folder structure below. You can exten
         |--Service2
 
 ```
+
+#### Web API analyzers
+
+In ASP.NET Core 3.0 or later, the analyzers are included in the .NET Core SDK. To enable the analyzer in your project, include the IncludeOpenAPIAnalyzers property in the api project file:
+
+```
+<PropertyGroup>
+ <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+</PropertyGroup>
+```
+
+https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/analyzers?view=aspnetcore-3.1&tabs=visual-studio
+
 
 #### Nuget Packages Used
 - [AutoMapper](https://automapper.org/)
